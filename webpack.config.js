@@ -13,8 +13,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/, // definimos el tipo de archivo para nuestra regla
-        use: ["style-loader","css-loader"], //utilizamos un loader para poder crear el bundle, tienen un orden
+        test: /\.scss$/,
+        use: [
+          "style-loader", //3. Inject styles into DOM
+          "css-loader", //2. Turns css into commonjs
+          "sass-loader", //1. Turns sass into css
+        ],
       },
     ],
   },
