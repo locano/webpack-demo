@@ -1,1 +1,3 @@
-alert("Start Webpack");
+import {start} from "./app/app";
+
+start();

@@ -1,4 +1,6 @@
-const noWebPackRow = () => {
+import {addCard} from "./add-card";
+
+export const noWebPackRow = () => {
     var row = document.createElement("div");
     row.classList.add("row");
   

@@ -1,4 +1,5 @@
-const webPackRow = () => {
+import { addCard } from "./add-card";
+export const webPackRow = () => {
   var row = document.createElement("div");
   row.classList.add("row");
 

@@ -5,11 +5,11 @@
  *
  */
 
+import {noWebPackRow} from "./utils/no-webpack-row";
+import {webPackRow} from "./utils/webpack-row";
 
-function start(){
+export const start = () => {
   document.getElementById("structure").appendChild(noWebPackRow());
   document.getElementById("structure2").appendChild(webPackRow());
-}
-
-start();
+};
 
