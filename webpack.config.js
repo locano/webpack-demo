@@ -7,9 +7,13 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "development", // development  (nomin), prod(min)
   devtool: false, //nos permite ver de mejor manera el codigo en nuestro output
-  entry: "./src/index.js", // ubicacion de nuestro codigo fuente (donde inicia todo)
+  entry: {
+    template:"./src/index.js",
+    home:"./src/home.js",
+    test:"./src/test.js"
+  }, // ubicacion de nuestro codigo fuente (donde inicia todo)
   output: {
-    filename: "main.bundle.js", // nombre del archivo que deseamos generar para nuestro bundle
+    filename: "[name].bundle.js", // nombre del archivo que deseamos generar para nuestro bundle
     path: path.resolve(__dirname, "dist"), //almacenamos nuestro output en un nuevo directorio dentro de nuestro root path
   },
   plugins: [
@@ -17,7 +21,19 @@ module.exports = {
     new miniCssExtractPlugin({ filename: "main.bundle.css" }),
     new HtmlWebpackPlugin({
       template: "./src/template.html",
-    })
+      filename: "template.html",
+      chunks:["template"]
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/test.html",
+      filename: "test.html",
+      chunks:["test"]
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/home.html",
+      filename: "home.html",
+      chunks:["home"]
+    }),
   ],
   module: {
     rules: [
